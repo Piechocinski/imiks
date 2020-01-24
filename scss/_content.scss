@@ -1,0 +1,437 @@
+.content{
+  padding: $mobile-spacing;
+  @include tablet{
+    padding: $main-spacing;
+  }
+  @include desktop{
+    margin-left: $main-spacing;
+    width: calc(100% - 415px);
+    max-width: $content-width;
+    padding: $main-spacing;
+  };
+  h2{
+    margin: $main-spacing 0;
+  }
+}
+
+.signature{
+  width: 45%;
+  display: block;
+  margin-top: $main-spacing;
+  float: right;
+  @include tablet{
+    width: 30%;
+  }
+}
+
+.section-head{
+  color: $font-color-secondary;
+}
+.trigger{
+  cursor: pointer;
+}
+
+.box{
+  font-family:'Barlow Condensed' , sans-serif;
+  background: $bg-color-contrast;
+  color: $font-color-third;
+  padding: $mobile-spacing;
+  @include tablet{
+    padding: $main-spacing;
+  }
+
+  ul{
+    list-style: square;
+    padding-left: 20px;
+    li{
+      margin-bottom: 7px;
+    }
+  }
+  p{
+    padding: 5px 0;
+  }
+  h4{
+    margin: 10px 0;
+  }
+}
+
+#about-section{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  @include desktop{
+  &::before{
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-right: 40px solid white;
+    margin:0 0 0 -40px;
+    }
+  }
+}
+
+
+.block-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  >li{
+    flex-basis: calc(50% - 7.5px);
+    margin-top: $mobile-spacing;
+    position: relative;
+      @include tablet{
+        flex-basis: calc(50% - 17.5px);
+        margin-top: $main-spacing;
+      }
+
+  &:nth-child(1){
+    margin-top: 0;
+  }
+  &:nth-child(2){
+    margin-top: 0;
+  }
+}
+  >li h3{
+    background:$bg-color-secondary;
+    padding: $mobile-spacing;
+    height: 130px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    cursor: pointer;
+    position: relative;
+    transition: 0.1s;
+    z-index: 2;
+    font-weight: 400;
+    font-size: 1rem;
+    overflow: hidden;
+    @include desktop{
+      padding: $main-spacing;
+    }
+
+    svg{
+      stroke-width: 2;
+      fill: transparent;
+      stroke: #fff;
+      max-height: 100px;
+      max-width: 120px;
+      position: absolute;
+      top: -5px;
+      right: -15px;
+      @include tablet{
+        max-height: 120px;
+        max-width: 60%;
+      }
+      @include desktop{
+        max-height: 130px;
+        max-width: 180px;
+      }
+    }
+
+    &.active{
+      background: $bg-color-contrast;
+      color: $font-color-third;
+      transform:perspective(50px) rotateX(-1deg);
+    }
+
+    &.active > svg {
+      stroke: $font-color-third;
+    }
+    @include desktop{
+      &:hover{
+        background: $bg-color-contrast;
+        color: $font-color-third;
+        transform:perspective(50px) rotateX(-1deg);
+      }
+
+      &:hover > svg{
+        stroke: $font-color-third;
+      }
+    }
+    &.active::after{
+      content: '';
+      width: 30px;
+      height: 30px;
+      background: $bg-color-contrast;
+      transform: rotate(45deg);
+      position: absolute;
+      bottom: -7px;
+      left: calc(50% - 20px);
+      z-index: -1;
+    }
+
+
+  }
+
+  .box{
+    display: none;
+    position: absolute;
+    width: calc(200% + 15px);
+    top: 160px;
+    transition: 0.1s;
+    @include tablet{
+      width: calc(200% + 25px);
+    }
+
+  }
+
+  li:nth-child(even) .box{
+    right: 0;
+  }
+  li:nth-child(odd) .box{
+    left: 0;
+  }
+
+  @include tablet{
+    li:nth-child(even) .box{
+      right: 5px;
+    }
+    li:nth-child(odd) .box{
+      left: 5px;
+    }
+  }
+
+}
+
+.wide-list{
+  .box{
+    display: none;
+    width: 100%;
+  }
+  h3{
+    padding: 15px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid $bg-color-secondary;
+    transition: 0.2s;
+    svg{
+      fill: $font-color-secondary;
+      flex-basis: 15px;
+      margin-left: $main-spacing;
+      flex-shrink: 0;
+      transition: 0.2s;
+    }
+    &.active{
+      border-bottom: 2px solid $bg-color-contrast;
+      background: $bg-color-contrast;
+      color: $font-color-third;
+    }
+
+    @include desktop{
+      &:hover{
+        border-bottom: 2px solid $bg-color-contrast;
+        background: $bg-color-contrast;
+        color: $font-color-third;
+      }
+      &:not(.trigger):hover{
+        background: $bg-color-primary;
+        color: $font-color-primary;
+        border-bottom: 2px solid $bg-color-secondary;
+      }
+    }
+  }
+  .active{
+    background: $bg-color-contrast;
+    color: $font-color-third;
+    svg{
+      fill: $font-color-third;
+      transform: rotate(180deg);
+    }
+  }
+}
+#portfolio-section{
+  position: relative;
+}
+
+#slider{
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: hidden;
+
+  li{
+    width: 100%;
+    flex: 1 0 auto;
+    transition: 0.5s ease-in-out;
+    article{
+      font-weight: 200;
+      height: 100%;
+      background: $bg-color-secondary;
+      padding: $main-spacing /2 ;
+      @include tablet{
+        padding: $main-spacing;
+      }
+
+    }
+  }
+  img{
+    width: 100%;
+  }
+
+}
+.arrow{
+  position: absolute;
+  top:0;
+  bottom: 0;
+
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  z-index: 2;
+  svg{
+    fill: $bg-color-contrast;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    background: $bg-color-primary;
+  }
+  &:hover svg{
+    fill: $font-color-secondary;
+  }
+}
+#slider-next{
+  right: 0;
+  svg{
+    transform: rotate(-90deg);
+  }
+}
+
+#slider-prev{
+  left: 0;
+  svg{
+    transform: rotate(90deg);
+  }
+}
+
+.timeline{
+  position: relative;
+  li{
+    //Timeline - left column
+    width: 50%;
+    text-align: right;
+    position: relative;
+    float: left;
+    padding-right: $main-spacing - 10;
+    &::before{
+      //Triangle - right
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 12.5px 15px 12.5px 0;
+      border-color: transparent $font-color-secondary transparent transparent;
+      position: absolute;
+      right: 0;
+    }
+
+    &:nth-child(odd){
+      //Timeline - right column
+      text-align: left;
+      float: right;
+      padding-left: $main-spacing - 10;
+      &::before{
+        //Triangle - left
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 12.5px 0 12.5px 15px;
+        border-color: transparent transparent transparent $font-color-secondary;
+        position: absolute;
+        left: 0;
+      }
+    }
+    &:nth-child(2){
+      margin-top: 50px;
+    }
+
+    .date{
+      color: $font-color-secondary;
+      font-size: 1rem;
+    }
+    p{
+      font-size: 1.1rem;
+      margin: $main-spacing 0;
+      font-weight: 200;
+    }
+
+  }
+  &::before{
+    display: block;
+    content: "";
+    width: 4px;
+    height: 100%;
+    background: $font-color-secondary;
+    position: absolute;
+    top: 0;
+    right: calc(50% - 2px);
+
+  }
+
+  &::after{
+    clear: both;
+    display: table;
+    content: "";
+  }
+}
+
+#contact-section{
+  h3{
+    color: $font-color-secondary;
+    font-size: 1.5rem;
+    span{
+      display: block;
+      color:$bg-color-contrast;
+      font-size: 2rem;
+    }
+  }
+  @include desktop{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+  }
+  &>div{
+    text-align: center;
+    padding-bottom: $main-spacing;
+    @include desktop{
+      text-align: left;
+    }
+
+  }
+  .qr{
+    padding: $main-spacing;
+    img{
+      width: 200px;
+    }
+    @include tablet{
+
+    }
+  }
+}
+
+.contact-details{
+  li{
+    font-size: 1.5rem;
+    padding-top:$main-spacing / 2;
+    text-transform: uppercase;
+    span{
+      color:$font-color-secondary;
+      display: block;
+      font-size: 1.2rem;
+    }
+    a{
+      color: $bg-color-contrast;
+      text-decoration: none;
+      &:hover{
+        color:$font-color-secondary;
+      }
+    }
+  }
+
+}

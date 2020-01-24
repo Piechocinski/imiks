@@ -1,0 +1,59 @@
+$bg-color-primary: rgba(11,14,23,1);
+$bg-color-secondary: rgba(13,17,27,1);
+$bg-color-third: rgba(18,22,31,1);
+$bg-color-contrast: rgba(255,255,255,1);
+$font-color-primary: rgba(255,255,255,1);
+$font-color-secondary: rgba(135,141,156,1);
+$font-color-third: rgba(11,14,23,1);
+
+/* Sizes */
+$main-spacing: 35px;
+$mobile-spacing: 15px;
+
+$sidebar-width: 380px;
+$content-width: 950px;
+html{
+  scroll-behavior: smooth;
+}
+body{
+  background: $bg-color-primary;
+  color: $font-color-primary;
+
+  justify-content: center;
+  font-family:'Barlow Condensed' , sans-serif;
+  font-size: 18px;
+  @include tablet{
+    font-size: 21px;
+  }
+  @include desktop{
+    display: flex;
+  };
+}
+
+h1, h2, h3, h4{
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+h1{
+  font-size: 0.9rem;
+  @include tablet{
+    font-size: 1.075rem;
+  }
+}
+
+h2{
+  font-size: 1.6rem;
+}
+
+h3{
+  font-size: 1.1rem;
+}
+
+h4{
+  font-size: 21px;
+}
+
+.wrapper{
+  margin: 0 auto;
+}

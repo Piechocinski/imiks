@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Groszek;Tomasz;;;
+FN:Tomasz Groszek
+ORG;CHARSET=utf-8:In¿ynieria i Konstrukcja Maszyn
+ADR;TYPE=WORK:;;Przecznia 91a;Kozy;;43-340;
+TEL;TYPE=CELL,VOICE:+48519190711
+URL;WORK:https://imiks.pl
+EMAIL;TYPE=HOME,PREF,INTERNET:groszektomasz@gmail.com
+END:VCARD

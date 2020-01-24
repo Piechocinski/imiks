@@ -1,0 +1,112 @@
+.sidebar{
+  background: $bg-color-secondary;
+  width: 100%;
+  padding: $main-spacing;
+
+  @include desktop{
+    width: $sidebar-width;
+    flex-shrink: 2;
+  }
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  @include tablet{
+    flex-direction: row;
+    justify-content: center;
+  }
+  @include desktop{
+    display: block;
+  };
+}
+
+.photo{
+ // display: flex;
+  width: 200px;
+  height: auto;
+  z-index: 2;
+  background: $bg-color-third;
+  border-radius: 50%;
+  @include desktop{
+    width:calc(100% - 70px);
+    margin: $main-spacing;
+  }
+}
+
+.photo img{
+  width: 100%;
+  z-index: 2;
+}
+
+.imiks{
+
+}
+
+.logo{
+  margin: $main-spacing;
+}
+
+.header h1, .sidebar h5{
+  text-align: center;
+  color: $font-color-secondary;
+  font-weight: 200;
+  text-transform: uppercase;
+
+}
+
+.menu{
+  margin: $main-spacing;
+  display: none;
+  @include tablet{
+    position: sticky;
+    top: 10px;
+  }
+
+  @include desktop{
+    display: block;
+  }
+
+  ul{
+    text-align: center;
+    padding: $main-spacing 0;
+  }
+  li{
+    margin: $main-spacing 0;
+  }
+  a{
+    text-decoration: none;
+    color: $font-color-secondary;
+    display: block;
+    text-transform: uppercase;
+
+    &:hover{
+      color:$font-color-primary;
+    }
+  }
+
+}
+
+.feedbacks{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a{
+    display: block;
+    width: 25px;
+    height: 25px;
+    margin: 0 $main-spacing /4;
+    cursor: pointer;
+    &:hover{
+      opacity: 0.6;
+    }
+  }
+  .feed-fb{
+    background: url("../img/facebook.svg");
+  }
+  .feed-in{
+    background: url("../img/linkedin.svg");
+  }
+}
