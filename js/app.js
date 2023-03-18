@@ -3,7 +3,7 @@ const offerHeadings = document.querySelectorAll(`.trigger`);
 
 function expandBox() {
     const box = this.nextElementSibling;
-    const parentSection = this.parentElement.parentElement.parentElement.id;
+    const section = this.parentElement.parentElement.parentElement.id;
 
     if (this.classList.contains(`active`)){
         box.style.display = `none`;
@@ -19,7 +19,7 @@ function expandBox() {
 
         box.style.display = `inline-block`;
         this.classList.toggle(`active`);
-        if (parentSection === `offer-section`){
+        if (section === `offer-section`){
             this.style.marginBottom = `${box.offsetHeight + 25}px`;
         }
     }
